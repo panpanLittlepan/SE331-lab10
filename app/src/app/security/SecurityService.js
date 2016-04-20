@@ -3,7 +3,7 @@
  */
 (function () {
   'use strict'
-  anugular
+  angular
     .module('app')
     .factory('UserService', UserService)
 
