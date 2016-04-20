@@ -7,11 +7,13 @@ import org.springframework.security.access.method.P;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by pan on 4/19/2016.
  */
-public class CustomerUserDetailService implements UserDetailsService {
+@Component
+public class CustomUserDetailService implements UserDetailsService {
 
     @Autowired
     private UserServiceImpl userService;
