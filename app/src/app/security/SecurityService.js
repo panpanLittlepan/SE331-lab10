@@ -2,7 +2,7 @@
  * Created by pan on 4/20/2016.
  */
 (function () {
-  'use strict'
+  'use strict';
   angular
     .module('app')
     .factory('UserService', UserService)
