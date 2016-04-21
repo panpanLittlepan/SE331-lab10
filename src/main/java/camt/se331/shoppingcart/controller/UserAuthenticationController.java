@@ -40,7 +40,8 @@ public class UserAuthenticationController {
     public UserTransfer getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
-        UserDetails userDetails = (UserDetails) principal;
+        //UserDetails userDetails = (UserDetails) principal;
+        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return new
                 UserTransfer(userDetails.getUsername(),this.createRoleMap (userDetails));
     }
