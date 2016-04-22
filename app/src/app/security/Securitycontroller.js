@@ -47,9 +47,13 @@
         UserService.get(function (user) {
           $rootScope.user = user;
           $location.path("/")
-        });
-        delete  $rootScope.error;
-      }
+        })
+      }, // unsuccess connection
+        function(error) {
+          if(error.status=="401"){
+            $rootScope.error="username or password is not correct";
+          }
+        }
       )
     }
   }
