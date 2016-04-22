@@ -32,6 +32,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         //add user
         Role adminRole = new Role("admin");
         Role userRole = new Role("user");
+        Role ForeignRole = new Role("fUser");
 
         User admin = new User();
         admin.setName("admin");
@@ -50,10 +51,23 @@ public class DatabaseInitializationBean implements InitializingBean {
         Set<Role> roles2 = new HashSet<>();
         roles2.add(userRole);
         user.setRoles(roles2);
+
+        User ForeignUser = new User();
+        ForeignUser.setName("Foreign User");
+        ForeignUser.setUsername("fUser");
+        ForeignUser.setEmail("ForeignUser@yahoo.com");
+        ForeignUser.setPassword("1234");
+        Set<Role> roles3=new HashSet<>();
+        roles3.add(ForeignRole);
+        ForeignUser.setRoles(roles3);
+
+        userRepository.save(ForeignUser);
         userRepository.save(admin);
         userRepository.save(user);
-        admin.setRoles(roles);
+
+        /*admin.setRoles(roles);
         user.setRoles(roles2);
+        ForeignUser.setRoles(roles3);*/
 
         Product[] initProduct =  {
                 new Product(1l,"Kindle","the good book reader",6900.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/x.png"),200)),

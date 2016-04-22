@@ -46,7 +46,8 @@
         }
         UserService.get(function (user) {
           $rootScope.user = user;
-          $location.path("/")
+          $location.path("/");
+          delete $rootScope.error;
         })
       }, // unsuccess connection
         function(error) {
