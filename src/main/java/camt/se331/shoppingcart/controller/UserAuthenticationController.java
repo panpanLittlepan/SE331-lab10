@@ -40,8 +40,8 @@ public class UserAuthenticationController {
     public UserTransfer getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object principal = authentication.getPrincipal();
-        //UserDetails userDetails = (UserDetails) principal;
-        UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails userDetails = (UserDetails) principal;
+        //UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return new
                 UserTransfer(userDetails.getUsername(),this.createRoleMap (userDetails));
     }
@@ -60,7 +60,7 @@ public class UserAuthenticationController {
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public TokenTransfer authenticate(@RequestBody String body)
     {
-       // The body has been sent by username = a&password&b format
+       // The body has been sent by username = a & password = b format
         String [] token = body.split("&");
         String username = token[0].split("=") [1];
         String password = token[1].split("=") [1];

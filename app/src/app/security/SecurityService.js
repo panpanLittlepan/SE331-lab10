@@ -5,7 +5,7 @@
   'use strict';
   angular
     .module('app')
-    .factory('UserService', UserService)
+    .factory('UserService', UserService);
 
   /** @ngInject */
   function UserService($resource) {
